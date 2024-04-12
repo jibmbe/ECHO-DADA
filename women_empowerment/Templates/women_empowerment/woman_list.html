@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Empowerment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f9f9f9, #e6e6e6);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #008080;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+        li:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        li .icon {
+            font-size: 32px;
+            margin-right: 20px;
+            color: #008080;
+        }
+        li .info {
+            flex-grow: 1;
+        }
+        li img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #008080;
+        }
+        li .name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #444;
+        }
+        li .age {
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+        li p {
+            color: #777;
+            font-size: 18px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        .icon-female {
+            color: #ff69b4;
+        }
+        .icon-heart {
+            color: #ff6347;
+            margin-right: 10px;
+        }
+        .icon-brain {
+            color: #4caf50;
+            margin-right: 10px;
+        }
+        .icon-lightbulb {
+            color: #fdd835;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Women Empowerment</h1>
+    <ul>
+        {% for woman in women %}
+            <li>
+                <img src="{{ woman.image }}" alt="{{ woman.name }}">
+                <div class="info">
+                    <span class="name">{{ woman.name }}</span><br>
+                    <span class="age">Age: {{ woman.age }}</span>
+                    <p>{{ woman.story }}</p>
+                </div>
+                <i class="fas fa-heart icon-heart"></i>
+                <i class="fas fa-female icon icon-female"></i>
+                <i class="fas fa-brain icon-brain"></i>
+                <i class="far fa-lightbulb icon-lightbulb"></i>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

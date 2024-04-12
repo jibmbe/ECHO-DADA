@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cleanup Activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #008080; /* Teal */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            padding: 20px;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+        li:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #008080; /* Teal */
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        p {
+            color: #777; /* Light Gray */
+            font-size: 18px;
+        }
+        .icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #008080; /* Teal */
+        }
+        .location-icon {
+            font-size: 24px;
+            color: #008080; /* Teal */
+            margin-right: 10px;
+        }
+        .date {
+            font-size: 16px;
+            color: #555; /* Dark Gray */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cleanup Activities</h1>
+    <ul>
+        {% for activity in activities %}
+            <li>
+                <i class="fas fa-trash icon"></i>
+                <h2><i class="fas fa-map-marker-alt location-icon"></i>{{ activity.location }}</h2>
+                <p>Date: {{ activity.date }}</p>
+                <p>Volunteers: 
+                    {% for volunteer in activity.volunteers %}
+                        {{ volunteer.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p>Description: {{ activity.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
